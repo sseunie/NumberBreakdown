@@ -24,11 +24,18 @@ public class NumberBreakdown_ {
         return new Object[][] {
                 {0, new int[][]{}},
                 {1, new int[][]{{1,0}}},
-                {10, new int[][]{{10,2}}}
+                {2, new int[][]{{2,0}}},
+                {10, new int[][]{{1,1}}}
         };
     }
 
     private int[][] breakdownOf(int number) {
-        return null;
+        if (number < 10) return breakdownOfOnes(number);
+        return new int[][]{{1,1}};
+    }
+
+    private int[][] breakdownOfOnes(int number) {
+        if (number == 0) return new int[][]{};
+        return new int[][]{{number,0}};
     }
 }
