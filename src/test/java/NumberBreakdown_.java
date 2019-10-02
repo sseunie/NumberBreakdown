@@ -25,17 +25,19 @@ public class NumberBreakdown_ {
                 {0, new int[][]{}},
                 {1, new int[][]{{1,0}}},
                 {2, new int[][]{{2,0}}},
-                {10, new int[][]{{1,1}}}
+                {10, new int[][]{{1,1}}},
+                {11, new int[][]{{1,1},{1,0}}},
         };
     }
 
     private int[][] breakdownOf(int number) {
         if (number < 10) return breakdownOfOnes(number);
-        return new int[][]{{1,1}};
+        if (number == 10) return new int[][]{{1,1}};
+        return new int[][]{{1,1},{1,0}};
     }
 
     private int[][] breakdownOfOnes(int number) {
-        if (number == 0) return new int[][]{};
-        return new int[][]{{number,0}};
+        if (number != 0) return new int[][]{{number,0}};
+        return new int[][]{};
     }
 }
